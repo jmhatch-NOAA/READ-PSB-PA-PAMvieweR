@@ -1,0 +1,10 @@
+##############################
+## Steps to create an R pkg ##
+##   Written by: J Hatch    ##
+##############################
+
+## Step 1) Set up a GitHub repo
+## Step 2) Set up an RStudio project using version control, referencing the GitHub repo you created in Step 1
+## Step 3) Run devtools::create() to setup the R pkg skeleton
+##   This will balk at you b/c of the repo name, but just make a folder to do this then move files to main dir
+## Step 4) Run usethis::use_pkgdown_github_pages()

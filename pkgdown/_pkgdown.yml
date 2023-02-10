@@ -1,0 +1,26 @@
+url: https://jmhatch-noaa.github.io/READ-PSB-PA-makaRa/
+
+navbar:
+  structure:
+    left:
+    - home
+    - issue
+    right: 
+    - github
+
+  components:
+    home:
+      icon: fas fa-home fa-lg
+      href: index.html
+
+    issue:
+      icon: fas fa-question-circle fa-lg
+      href: https://github.com/jmhatch-NOAA/READ-PSB-PA-makaRa/issues
+      
+    github:
+      icon: fa fa-github fa-lg
+      href: https://github.com/jmhatch-NOAA/READ-PSB-PA-makaRa
+
+authors:
+  Joshua Hatch:
+    href: https://github.com/jmhatch-NOAA
