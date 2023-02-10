@@ -4,4 +4,4 @@
 ^docs$
 ^pkgdown$
 ^\.github$
-^inst\R_pkg_devel_steps\.txt$
+^inst/refs$
