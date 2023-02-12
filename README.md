@@ -1,6 +1,8 @@
-# makaRa  <img src="man/figures/logo.svg" align="right" width="120" />
+# {makaRa} <a href='https://jmhatch-noaa.github.io/READ-PSB-PA-makaRa/'><img src='man/figures/logo.png' align="right" height="250" /></a>
 
 [![gitleaks](https://github.com/jmhatch-NOAA/READ-PSB-PA-makaRa/actions/workflows/secretScan.yml/badge.svg)](https://github.com/jmhatch-NOAA/READ-PSB-PA-makaRa/actions/workflows/secretScan.yml)
+
+Facilitating EDA for passive acoustic data housed in the iternal NEFSC database (db), Makara.
 
 ### Installation
 

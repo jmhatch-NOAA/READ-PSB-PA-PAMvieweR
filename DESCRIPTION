@@ -1,11 +1,10 @@
 Package: makaRa
-Title: What the Package Does (One Line, Title Case)
+Title: An R pkg for Makara
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: file LICENSE
+    person("Joshua", "Hatch", , "joshua.hatch@noaa.gov", role = c("aut", "cre"))
+Description: Facilitating EDA for passive acoustic data housed in the iternal NEFSC database (db), Makara.
+ License: file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3

@@ -4,3 +4,5 @@
 ^pkgdown$
 ^\.github$
 ^inst/refs$
+^\.Rhistory$
+^data-raw/logo$

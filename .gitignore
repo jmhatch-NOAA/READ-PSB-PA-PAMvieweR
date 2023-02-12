@@ -1,3 +1,5 @@
 .Rproj.user
 docs
 inst/refs
+.Rhistory
+data-raw/logo
