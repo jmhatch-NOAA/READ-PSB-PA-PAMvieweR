@@ -2,7 +2,7 @@
 
 [![gitleaks](https://github.com/jmhatch-NOAA/READ-PSB-PA-makaRa/actions/workflows/secretScan.yml/badge.svg)](https://github.com/jmhatch-NOAA/READ-PSB-PA-makaRa/actions/workflows/secretScan.yml)
 
-Facilitating EDA for passive acoustic data housed in the iternal NEFSC database (db), Makara.
+Facilitating EDA for passive acoustic data stored in the iternal NEFSC database (db), Makara.
 
 ### Installation
 
