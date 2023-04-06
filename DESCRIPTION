@@ -1,4 +1,4 @@
-Package: makaRa
+Package: PAMvieweR
 Title: An R pkg for Makara
 Version: 0.0.0.9000
 Authors@R: 
@@ -8,4 +8,4 @@ Description: Facilitating EDA for passive acoustic data stored in the iternal NE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
-URL: https://jmhatch-noaa.github.io/READ-PSB-PA-makaRa/
+URL: https://jmhatch-noaa.github.io/READ-PSB-PA-PAMvieweR/
