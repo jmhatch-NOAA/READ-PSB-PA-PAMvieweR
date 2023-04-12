@@ -1,4 +1,4 @@
-# {PAMvieweR} <a href='https://jmhatch-noaa.github.io/READ-PSB-PA-PAMvieweR/'><img src='man/figures/logo.png' align="right" height="250" /></a>
+# {PAMvieweR} <a href='https://jmhatch-noaa.github.io/READ-PSB-PA-PAMvieweR/'><img src='man/figures/logo.png' align="right" height="250" width="250" /></a>
 
 [![gitleaks](https://github.com/jmhatch-NOAA/READ-PSB-PA-PAMvieweR/actions/workflows/secretScan.yml/badge.svg)](https://github.com/jmhatch-NOAA/READ-PSB-PA-PAMvieweR/actions/workflows/secretScan.yml)
 

@@ -1,4 +1,4 @@
-url: https://jmhatch-noaa.github.io/READ-PSB-PA-makaRa/
+url: https://jmhatch-noaa.github.io/READ-PSB-PA-PAMvieweR/
 
 navbar:
   structure:
@@ -15,11 +15,11 @@ navbar:
 
     issue:
       icon: fas fa-question-circle fa-lg
-      href: https://github.com/jmhatch-NOAA/READ-PSB-PA-makaRa/issues
+      href: https://github.com/jmhatch-NOAA/READ-PSB-PA-PAMvieweR/issues
       
     github:
       icon: fa fa-github fa-lg
-      href: https://github.com/jmhatch-NOAA/READ-PSB-PA-makaRa
+      href: https://github.com/jmhatch-NOAA/READ-PSB-PA-PAMvieweR
 
 authors:
   Joshua Hatch:
