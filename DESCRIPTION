@@ -1,8 +1,12 @@
 Package: PAMvieweR
 Title: An R pkg for Makara
 Version: 0.0.0.9000
-Authors@R: 
-    person("Joshua", "Hatch", , "joshua.hatch@noaa.gov", role = c("aut", "cre"))
+Authors@R: c(
+    person("Joshua", "Hatch", email = "joshua.hatch@noaa.gov", role = c("aut", "cre")),
+    person("Genevieve", "Davis", email = "genevieve.davis@noaa.gov", role = "ctb"),
+    person("Annamaria", "DeAngelis", email = "annamaria.deangelis@noaa.gov", role = "ctb"),
+    person("Jessica", "McCordic", email = "jessica.mccordic@noaa.gov", role = "ctb"),
+    person("Annabel", "Westell", email = "annabel.westell@noaa.gov", role = "aut"))
 Description: Facilitating exploratory data analysis (EDA) for passive acoustic data stored in the iternal NEFSC database (db), Makara.
 License: file LICENSE
 Encoding: UTF-8
