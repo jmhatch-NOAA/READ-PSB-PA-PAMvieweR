@@ -3,3 +3,4 @@ docs
 inst/refs
 .Rhistory
 data-raw/logo
+example.R
