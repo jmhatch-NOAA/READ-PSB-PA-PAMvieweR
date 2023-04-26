@@ -28,13 +28,13 @@ jobs:
         with:
           use-public-rspm: true
 
+      - name: Install needed R packages
+        run: Rscript -e 'install.packages(c("DBI", "dplyr"))'
+        
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::pkgdown, local::.
           needs: website
-
-      - name: Install needed R packages
-        run: Rscript -e 'install.packages(c("DBI", "dplyr"))'
         
       - name: Build site
         run: pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
