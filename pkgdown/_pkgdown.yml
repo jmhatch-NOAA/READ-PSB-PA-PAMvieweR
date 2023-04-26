@@ -4,6 +4,7 @@ navbar:
   structure:
     left:
     - home
+    - reference
     - issue
     right: 
     - github
@@ -12,7 +13,11 @@ navbar:
     home:
       icon: fas fa-home fa-lg
       href: index.html
-
+      
+    reference:
+      icon: fas fa-code fa-lg
+      href: reference/index.html
+      
     issue:
       icon: fas fa-question-circle fa-lg
       href: https://github.com/jmhatch-NOAA/READ-PSB-PA-PAMvieweR/issues
