@@ -5,6 +5,8 @@
 #' @field species_id A vector of species IDs, see data table `PAGROUP.S_SPECIES`.
 #' @field pam_data The dataset (may be filtered, grouped, and / or summarized).
 #'
+#' @export
+#'
 Occurrence <- R6::R6Class(classname = "Occurrence", 
                           
                           # super class (parent)

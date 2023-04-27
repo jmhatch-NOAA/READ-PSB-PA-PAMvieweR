@@ -6,6 +6,8 @@
 #' @field table A table or view name that contains the data.
 #' @field sql A SQL statement to query the database (DB).
 #'
+#' @export
+#'
 Makara <- R6::R6Class(classname = "Makara",
                       
                       # public
