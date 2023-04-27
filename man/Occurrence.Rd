@@ -52,7 +52,7 @@ Reads the data into R from the DB.
 \if{html}{\out{<a id="method-Occurrence-where_species"></a>}}
 \if{latex}{\out{\hypertarget{method-Occurrence-where_species}{}}}
 \subsection{Method \code{where_species()}}{
-Filters the data pull by species.
+Modifies the where clause of the SQL statement to include species IDs.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Occurrence$where_species(species_id)}\if{html}{\out{</div>}}
 }
@@ -60,7 +60,7 @@ Filters the data pull by species.
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{species_id}}{Vector of species IDs to filter by (see data table \code{PAGROUP.S_SPECIES})}
+\item{\code{species_id}}{Vector of species IDs (see data table \code{PAGROUP.S_SPECIES})}
 }
 \if{html}{\out{</div>}}
 }

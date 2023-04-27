@@ -25,13 +25,13 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                               self$pam_data <- private$data
                             },
                             
-                            #' @description Filters the data pull by species. 
+                            #' @description Modifies the where clause of the SQL statement to include species IDs. 
                             #' 
                             #' @details 
                             #' This method modifies the SQL statement to query the DB. 
                             #' If changed, you must re-execute \code{Occurrence$get_data()}.
                             #' 
-                            #' @param species_id Vector of species IDs to filter by (see data table `PAGROUP.S_SPECIES`)
+                            #' @param species_id Vector of species IDs (see data table `PAGROUP.S_SPECIES`)
                             #' 
                             where_species = function(species_id) {
                               self$species_id <- species_id
