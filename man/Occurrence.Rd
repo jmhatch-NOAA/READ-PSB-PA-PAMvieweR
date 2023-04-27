@@ -42,7 +42,7 @@ An R6 class representing acoustic / vocal occurrence data from Passive Acoustic 
 \if{html}{\out{<a id="method-Occurrence-get_data"></a>}}
 \if{latex}{\out{\hypertarget{method-Occurrence-get_data}{}}}
 \subsection{Method \code{get_data()}}{
-Reads the data into R from the DB.
+Queries the DB using an SQL statement and fetches the data into R.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Occurrence$get_data()}\if{html}{\out{</div>}}
 }
@@ -52,7 +52,7 @@ Reads the data into R from the DB.
 \if{html}{\out{<a id="method-Occurrence-where_species"></a>}}
 \if{latex}{\out{\hypertarget{method-Occurrence-where_species}{}}}
 \subsection{Method \code{where_species()}}{
-Modifies the where clause of the SQL statement to include species IDs.
+Modifies the where clause of the SQL statement used by \code{get_data()} to include species IDs.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Occurrence$where_species(species_id)}\if{html}{\out{</div>}}
 }
