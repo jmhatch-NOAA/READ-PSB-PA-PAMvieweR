@@ -18,14 +18,14 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                             pam_data = NULL,
 
                             # methods
-                            #' @description Reads the data into R from the DB.
+                            #' @description Queries the DB using an SQL statement and fetches the data into R.
                             #'
                             get_data = function() {
                               super$get_data()
                               self$pam_data <- private$data
                             },
                             
-                            #' @description Modifies the where clause of the SQL statement to include species IDs. 
+                            #' @description Modifies the where clause of the SQL statement used by `get_data()` to include species IDs. 
                             #' 
                             #' @details 
                             #' This method modifies the SQL statement to query the DB. 
