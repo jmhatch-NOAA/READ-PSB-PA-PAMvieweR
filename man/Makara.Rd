@@ -11,9 +11,9 @@ An R6 class representing a connection to the Makara database.
 \describe{
 \item{\code{connection}}{A database connection object, created using a package such as \code{ROracle::dbConnect()}.}
 
-\item{\code{table}}{The table or view name that contains the data.}
+\item{\code{table}}{A table or view name that contains the data.}
 
-\item{\code{sql}}{The SQL statement to query the database (DB).}
+\item{\code{sql}}{A SQL statement to query the database (DB).}
 }
 \if{html}{\out{</div>}}
 }

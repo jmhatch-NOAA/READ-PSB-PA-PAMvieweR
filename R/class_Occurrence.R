@@ -2,7 +2,7 @@
 #'
 #' @description An R6 class representing acoustic / vocal occurrence data from Passive Acoustic Monitoring (PAM).
 #'
-#' @field species_id A vector of species IDs to filter the data, see data table `PAGROUP.S_SPECIES`.
+#' @field species_id A vector of species IDs, see data table `PAGROUP.S_SPECIES`.
 #' @field pam_data The dataset (may be filtered, grouped, and / or summarized).
 #'
 Occurrence <- R6::R6Class(classname = "Occurrence", 
@@ -28,7 +28,7 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                             #' @description Modifies the where clause of the SQL statement used by `get_data()` to include species IDs. 
                             #' 
                             #' @details 
-                            #' This method modifies the SQL statement to query the DB. 
+                            #' This method modifies the SQL statement used to query the DB. 
                             #' If changed, you must re-execute \code{Occurrence$get_data()}.
                             #' 
                             #' @param species_id Vector of species IDs (see data table `PAGROUP.S_SPECIES`)

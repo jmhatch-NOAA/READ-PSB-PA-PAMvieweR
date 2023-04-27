@@ -3,8 +3,8 @@
 #' @description An R6 class representing a connection to the Makara database.
 #'
 #' @field connection A database connection object, created using a package such as `ROracle::dbConnect()`.
-#' @field table The table or view name that contains the data.
-#' @field sql The SQL statement to query the database (DB).
+#' @field table A table or view name that contains the data.
+#' @field sql A SQL statement to query the database (DB).
 #'
 Makara <- R6::R6Class(classname = "Makara",
                       

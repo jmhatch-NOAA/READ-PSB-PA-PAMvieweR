@@ -12,7 +12,7 @@ An R6 class representing acoustic / vocal occurrence data from Passive Acoustic 
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{species_id}}{A vector of species IDs to filter the data, see data table \code{PAGROUP.S_SPECIES}.}
+\item{\code{species_id}}{A vector of species IDs, see data table \code{PAGROUP.S_SPECIES}.}
 
 \item{\code{pam_data}}{The dataset (may be filtered, grouped, and / or summarized).}
 }
@@ -65,7 +65,7 @@ Modifies the where clause of the SQL statement used by \code{get_data()} to incl
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-This method modifies the SQL statement to query the DB.
+This method modifies the SQL statement used to query the DB.
 If changed, you must re-execute \code{Occurrence$get_data()}.
 }
 
