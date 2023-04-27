@@ -12,6 +12,7 @@ License: file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
-Import: ROracle,
+Import: R6,
+  ROracle,
   dplyr
 URL: https://jmhatch-noaa.github.io/READ-PSB-PA-PAMvieweR/
