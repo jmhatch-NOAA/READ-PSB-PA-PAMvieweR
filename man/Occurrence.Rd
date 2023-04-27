@@ -4,7 +4,7 @@
 \alias{Occurrence}
 \title{Occurrence R6 Class}
 \description{
-An R6 class representing acoustic / vocal occurrence data from Passive Acoustic Monitoring.
+An R6 class representing acoustic / vocal occurrence data from Passive Acoustic Monitoring (PAM).
 }
 \section{Super class}{
 \code{\link[PAMvieweR:Makara]{PAMvieweR::Makara}} -> \code{Occurrence}
@@ -14,7 +14,7 @@ An R6 class representing acoustic / vocal occurrence data from Passive Acoustic 
 \describe{
 \item{\code{species_id}}{A vector of species IDs to filter the data, see data table \code{PAGROUP.S_SPECIES}.}
 
-\item{\code{agg_data}}{The aggregated dataset.}
+\item{\code{pam_data}}{The dataset (may be filtered, grouped, and / or summarized).}
 }
 \if{html}{\out{</div>}}
 }
@@ -22,7 +22,9 @@ An R6 class representing acoustic / vocal occurrence data from Passive Acoustic 
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-Occurrence-get_data}{\code{Occurrence$get_data()}}
-\item \href{#method-Occurrence-filter_species}{\code{Occurrence$filter_species()}}
+\item \href{#method-Occurrence-where_species}{\code{Occurrence$where_species()}}
+\item \href{#method-Occurrence-filter}{\code{Occurrence$filter()}}
+\item \href{#method-Occurrence-group}{\code{Occurrence$group()}}
 \item \href{#method-Occurrence-aggregate}{\code{Occurrence$aggregate()}}
 \item \href{#method-Occurrence-print}{\code{Occurrence$print()}}
 \item \href{#method-Occurrence-clone}{\code{Occurrence$clone()}}
@@ -47,14 +49,12 @@ Reads the data into R from the DB.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-Occurrence-filter_species"></a>}}
-\if{latex}{\out{\hypertarget{method-Occurrence-filter_species}{}}}
-\subsection{Method \code{filter_species()}}{
-Filters the data by species.
-This method modifies the SQL statement to query the DB.
-If changed, you must re-execute \code{Occurrence$get_data()}.
+\if{html}{\out{<a id="method-Occurrence-where_species"></a>}}
+\if{latex}{\out{\hypertarget{method-Occurrence-where_species}{}}}
+\subsection{Method \code{where_species()}}{
+Filters the data pull by species.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Occurrence$filter_species(species_id)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{Occurrence$where_species(species_id)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -64,33 +64,59 @@ If changed, you must re-execute \code{Occurrence$get_data()}.
 }
 \if{html}{\out{</div>}}
 }
+\subsection{Details}{
+This method modifies the SQL statement to query the DB.
+If changed, you must re-execute \code{Occurrence$get_data()}.
+}
+
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-Occurrence-aggregate"></a>}}
-\if{latex}{\out{\hypertarget{method-Occurrence-aggregate}{}}}
-\subsection{Method \code{aggregate()}}{
-Aggregates the data by grouping variable(s).
+\if{html}{\out{<a id="method-Occurrence-filter"></a>}}
+\if{latex}{\out{\hypertarget{method-Occurrence-filter}{}}}
+\subsection{Method \code{filter()}}{
+Filters the data.
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Occurrence$aggregate(.column, .function, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{Occurrence$filter(...)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
-\item{\code{.column}}{Column name of the data to be aggregated}
+\item{\code{...}}{See \link[dplyr]{filter}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-Occurrence-group"></a>}}
+\if{latex}{\out{\hypertarget{method-Occurrence-group}{}}}
+\subsection{Method \code{group()}}{
+Groups the data.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Occurrence$group(...)}\if{html}{\out{</div>}}
+}
 
-\item{\code{.function}}{Character string of the function to aggregate the data in \code{.column}
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{...}}{See \link[dplyr]{group_by}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-Occurrence-aggregate"></a>}}
+\if{latex}{\out{\hypertarget{method-Occurrence-aggregate}{}}}
+\subsection{Method \code{aggregate()}}{
+Summarizes the data.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Occurrence$aggregate(...)}\if{html}{\out{</div>}}
+}
 
-Available functions:
-\itemize{
-\item{'n'}{ Count unique values}
-\item{'min'}{ Minimum value}
-\item{'max'}{ Maximum value}
-\item{'mean'}{ Average value}
-\item{'median'}{ Median value}
-}}
-
-\item{\code{...}}{Grouping variable(s)}
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{...}}{See \link[dplyr]{summarize}}
 }
 \if{html}{\out{</div>}}
 }

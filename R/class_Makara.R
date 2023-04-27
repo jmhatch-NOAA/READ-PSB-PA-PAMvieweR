@@ -2,10 +2,9 @@
 #'
 #' @description An R6 class representing a connection to the Makara database.
 #'
-#' @field connection A database connection object, created using a package such as `DBI::dbConnect()`.
+#' @field connection A database connection object, created using a package such as `ROracle::dbConnect()`.
 #' @field table The table or view name that contains the data.
 #' @field sql The SQL statement to query the database (DB).
-#' @field data The dataset.
 #'
 Makara <- R6::R6Class(classname = "Makara",
                       
@@ -16,7 +15,6 @@ Makara <- R6::R6Class(classname = "Makara",
                         connection = NULL,
                         table = NULL,
                         sql = NULL,
-                        data = NULL,
                         
                         # methods
                         #' @description Initializes the Makara R6 object.
@@ -25,29 +23,23 @@ Makara <- R6::R6Class(classname = "Makara",
                         #' @param table Table or view name
                         #'
                         initialize = function(connection, table) {
-                          stopifnot(DBI::dbIsValid(dbObj = connection))
+                          stopifnot(private$dbIsValid())
                           if (grepl('\\.', table)) {
                             table_split <- unlist(strsplit(x = table, split = '\\.'))
-                            stopifnot(DBI::dbExistsTable(conn = connection, name = table_split[2], schema = table_split[1]))
+                            stopifnot(ROracle::dbExistsTable(conn = connection, name = table_split[2], schema = table_split[1]))
                           } else {
-                            stopifnot(DBI::dbExistsTable(conn = connection, name = table, schema = 'PAGROUP'))
+                            stopifnot(ROracle::dbExistsTable(conn = connection, name = table, schema = 'PAGROUP'))
                           }
                           self$connection <- connection
                           self$table <- table
                           self$sql <- paste0('SELECT * FROM ', self$table)
                         },
                         
-                        #' @description Reads the data into R from the DB.
-                        #'
-                        get_data = function() {
-                          self$data <- DBI::dbGetQuery(conn = self$connection, statement = self$sql)
-                        },
-                        
                         #' @description Prints the Makara R6 object.
                         #' 
                         print = function() {
-                          if (DBI::dbIsValid(self$connection)) {
-                            message(paste0("You're currently connected to ", DBI::dbGetInfo(self$connection)$dbms.name, " and pulling from ", self$table, ".\n"))
+                          if (private$dbIsValid()) {
+                            message(paste0("You're currently connected to ", ROracle::dbGetInfo(self$connection)$dbname, " and pulling from ", self$table, ".\n"))
                           } else {
                             message("You're disconnected from the Makara database.\n")
                           }
@@ -57,8 +49,30 @@ Makara <- R6::R6Class(classname = "Makara",
                         #' 
                         finalize = function() {
                           message("Disconnecting from the Makara database.\n")
-                          DBI::dbDisconnect(self$connection)
+                          ROracle::dbDisconnect(self$connection)
                         }
+                      ),
+                      
+                      # private (not accessible outside of class)
+                      private = list(
+                        
+                        # fields
+                        data = NULL,
+                       
+                        # methods
+                        get_data = function() {
+                          private$data <- ROracle::dbGetQuery(conn = self$connection, statement = self$sql)
+                        },
+                        
+                        # https://stackoverflow.com/questions/54218194/how-does-one-determine-if-a-data-base-connection-is-open-or-close-using-the-r-or
+                        dbIsValid = function() {
+                          if (length(ROracle::dbListConnections(ROracle::Oracle())) > 0) {
+                            TRUE
+                          } else {
+                            FALSE
+                          }
+                        }
+                        
                       )
                       
 )

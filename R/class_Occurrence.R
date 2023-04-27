@@ -1,9 +1,9 @@
 #' Occurrence R6 Class
 #'
-#' @description An R6 class representing acoustic / vocal occurrence data from Passive Acoustic Monitoring.
+#' @description An R6 class representing acoustic / vocal occurrence data from Passive Acoustic Monitoring (PAM).
 #'
 #' @field species_id A vector of species IDs to filter the data, see data table `PAGROUP.S_SPECIES`.
-#' @field agg_data The aggregated dataset.
+#' @field pam_data The dataset (may be filtered, grouped, and / or summarized).
 #'
 Occurrence <- R6::R6Class(classname = "Occurrence", 
                           
@@ -15,74 +15,88 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                             
                             # fields
                             species_id = NULL,
-                            agg_data = NULL,
+                            pam_data = NULL,
 
                             # methods
                             #' @description Reads the data into R from the DB.
                             #'
                             get_data = function() {
                               super$get_data()
-                              self$agg_data <- self$data
+                              self$pam_data <- private$data
                             },
                             
-                            #' @description Filters the data by species. 
+                            #' @description Filters the data pull by species. 
+                            #' 
+                            #' @details 
                             #' This method modifies the SQL statement to query the DB. 
                             #' If changed, you must re-execute \code{Occurrence$get_data()}.
                             #' 
                             #' @param species_id Vector of species IDs to filter by (see data table `PAGROUP.S_SPECIES`)
                             #' 
-                            filter_species = function(species_id) {
+                            where_species = function(species_id) {
                               self$species_id <- species_id
-                              stopifnot(!is.null(self$species_id))
-                              self$sql <- paste0('SELECT * FROM ', self$table, ' where SPECIES_ID in (%s)')
-                              self$sql <- sprintf(self$sql, toString(sprintf("'%s'", self$species_id)))
+                              if (is.null(self$species_id)) {
+                                self$sql <- paste0('SELECT * FROM ', self$table)
+                              } else {
+                                self$sql <- paste0('SELECT * FROM ', self$table, ' where SPECIES_ID in (%s)')
+                                self$sql <- sprintf(self$sql, toString(sprintf("'%s'", self$species_id)))
+                              }
+                              invisible(self)
                             },
                             
-                            #' @description Aggregates the data by grouping variable(s).
-                            #' 
-                            #' @param .column Column name of the data to be aggregated
-                            #' @param .function Character string of the function to aggregate the data in `.column`
-                            #' 
-                            #' Available functions:
-                            #' \itemize{
-                            #' \item{'n'}{ Count unique values}
-                            #' \item{'min'}{ Minimum value}
-                            #' \item{'max'}{ Maximum value}
-                            #' \item{'mean'}{ Average value}
-                            #' \item{'median'}{ Median value}
-                            #' }
-                            #' @param ... Grouping variable(s) 
-                            #' 
-                            #' @importFrom dplyr %>%
+                            #' @description Filters the data. 
                             #'
-                            aggregate = function(.column, .function, ...) {
-                              stopifnot(!is.null(self$agg_data))
-                              stopifnot(is.character(.function))
-                              fun <- switch(.function,
-                                            "n" = private$count,
-                                            "min" = min,
-                                            "max" = max,
-                                            "mean" = mean,
-                                            "median" = median,
-                                            stop("Function not found."))
-                              self$agg_data <- self$agg_data %>%
-                                dplyr::group_by(...) %>%
-                                dplyr::summarise("{ .function }_{{ .column }}" := fun({{ .column }}), .groups = 'drop')
-                              self
+                            #' @param ... See \link[dplyr]{filter}
+                            #' 
+                            #' @importFrom magrittr %<>%
+                            #' 
+                            filter = function(...) {
+                              self$pam_data %<>%
+                                dplyr::filter(...)
+                              private$filtered <- TRUE
+                              invisible(self)
+                            },
+                            
+                            #' @description Groups the data. 
+                            #' 
+                            #' @param ... See \link[dplyr]{group_by}
+                            #' 
+                            #' @importFrom magrittr %<>%
+                            #' 
+                            group = function(...) {
+                              self$pam_data %<>%
+                                dplyr::group_by(...)
+                              private$grouped <- TRUE
+                              invisible(self)
+                            },
+                            
+                            #' @description Summarizes the data.
+                            #' 
+                            #' @param ... See \link[dplyr]{summarize}
+                            #' 
+                            #' @importFrom magrittr %<>%
+                            #' 
+                            aggregate = function(...) {
+                              self$pam_data %<>%
+                                dplyr::summarize(...)
+                              private$summarized <- TRUE
+                              invisible(self)
                             },
                             
                             #' @description Prints the Occurrence R6 Object
                             print = function() {
-                              # some kind of summary
+                              print(self$pam_data)
                             }
                             
                           ),
                           
-                          # private (not accessible outside of the class)
+                          # private (not accessible outside of class)
                           private = list(
                             
-                            # methods
-                            count = function(x) length(x)
+                            # fields
+                            filtered = FALSE,
+                            grouped = FALSE,
+                            summarized = FALSE
                             
                           )
                           

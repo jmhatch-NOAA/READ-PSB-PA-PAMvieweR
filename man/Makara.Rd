@@ -9,13 +9,11 @@ An R6 class representing a connection to the Makara database.
 \section{Public fields}{
 \if{html}{\out{<div class="r6-fields">}}
 \describe{
-\item{\code{connection}}{A database connection object, created using a package such as \code{DBI::dbConnect()}.}
+\item{\code{connection}}{A database connection object, created using a package such as \code{ROracle::dbConnect()}.}
 
 \item{\code{table}}{The table or view name that contains the data.}
 
 \item{\code{sql}}{The SQL statement to query the database (DB).}
-
-\item{\code{data}}{The dataset.}
 }
 \if{html}{\out{</div>}}
 }
@@ -23,7 +21,6 @@ An R6 class representing a connection to the Makara database.
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-Makara-new}{\code{Makara$new()}}
-\item \href{#method-Makara-get_data}{\code{Makara$get_data()}}
 \item \href{#method-Makara-print}{\code{Makara$print()}}
 \item \href{#method-Makara-finalize}{\code{Makara$finalize()}}
 \item \href{#method-Makara-clone}{\code{Makara$clone()}}
@@ -47,16 +44,6 @@ Initializes the Makara R6 object.
 }
 \if{html}{\out{</div>}}
 }
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-Makara-get_data"></a>}}
-\if{latex}{\out{\hypertarget{method-Makara-get_data}{}}}
-\subsection{Method \code{get_data()}}{
-Reads the data into R from the DB.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Makara$get_data()}\if{html}{\out{</div>}}
-}
-
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Makara-print"></a>}}
