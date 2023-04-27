@@ -16,7 +16,7 @@ This repository is a scientific product and is not official communication of the
 
 ### Acknowledgments
 
-Hex sticker (i.e., logo) was designed by [Julianne Wilder](mailto: julianne.wilder@noaa.gov?subject={PAMvieweR}%20Logo), Acoustician and Artist extraordinaire!
+Hex sticker (i.e., logo) was designed by [Julianne Wilder](mailto:julianne.wilder@noaa.gov?subject={PAMvieweR}%20Logo), Acoustician and Artist extraordinaire!
 
 ---
 
