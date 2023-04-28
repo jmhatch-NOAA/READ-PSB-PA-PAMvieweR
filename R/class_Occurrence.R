@@ -85,6 +85,19 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                               invisible(self)
                             },
                             
+                            #' @description Modifies the data.
+                            #' 
+                            #' @param ... See \link[dplyr]{mutate}
+                            #' 
+                            #' @importFrom magrittr %<>%
+                            #' 
+                            mutate = function(...) {
+                              self$pam_data %<>%
+                                dplyr::mutate(...)
+                              private$mutated <- TRUE
+                              invisible(self)
+                            },
+                            
                             #' @description Prints the Occurrence R6 Object
                             print = function() {
                               print(self$pam_data)
@@ -98,7 +111,8 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                             # fields
                             filtered = FALSE,
                             grouped = FALSE,
-                            summarized = FALSE
+                            summarized = FALSE,
+                            mutated = FALSE
                             
                           )
                           

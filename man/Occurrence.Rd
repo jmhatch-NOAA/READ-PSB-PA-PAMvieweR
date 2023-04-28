@@ -26,6 +26,7 @@ An R6 class representing acoustic / vocal occurrence data from Passive Acoustic 
 \item \href{#method-Occurrence-filter}{\code{Occurrence$filter()}}
 \item \href{#method-Occurrence-group}{\code{Occurrence$group()}}
 \item \href{#method-Occurrence-aggregate}{\code{Occurrence$aggregate()}}
+\item \href{#method-Occurrence-mutate}{\code{Occurrence$mutate()}}
 \item \href{#method-Occurrence-print}{\code{Occurrence$print()}}
 \item \href{#method-Occurrence-clone}{\code{Occurrence$clone()}}
 }
@@ -117,6 +118,23 @@ Summarizes the data.
 \if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{...}}{See \link[dplyr]{summarize}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-Occurrence-mutate"></a>}}
+\if{latex}{\out{\hypertarget{method-Occurrence-mutate}{}}}
+\subsection{Method \code{mutate()}}{
+Modifies the data.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Occurrence$mutate(...)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{...}}{See \link[dplyr]{mutate}}
 }
 \if{html}{\out{</div>}}
 }
