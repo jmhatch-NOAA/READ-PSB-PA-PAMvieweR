@@ -98,6 +98,18 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                               invisible(self)
                             },
                             
+                            #' @description Resets the data.
+                            #' 
+                            reset = function() {
+                              if(any(c(private$filtered, private$grouped, private$summarized, private$mutated))) {
+                                self$pam_data <- private$data
+                                messsage('Occurrence$pam_data has been reset.')
+                              } else {
+                                messsage('No need to reset Occurrence$pam_data.')
+                              }
+                              invisible(self)
+                            },
+                            
                             #' @description Prints the Occurrence R6 Object
                             print = function() {
                               print(self$pam_data)
