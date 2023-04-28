@@ -105,7 +105,7 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jmhatch-noaa.github.io/READ-PSB-PA-PAMvieweR/">PAMvieweR</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
-<h2 id="db-connection">DB connection<a class="anchor" aria-label="anchor" href="#db-connection"></a>
+<h2 id="new-occurrence-r6-class">New Occurrence R6 Class<a class="anchor" aria-label="anchor" href="#new-occurrence-r6-class"></a>
 </h2>
 <p>First things first. You’ll need to set up a connection to
 <code>nefscdb1</code>, this is the database where the
@@ -122,8 +122,8 @@ familiar with python, the syntax of R6 classes should feel familiar. For
 those more acquainted with R, R6 classes will take some getting used to.
 A good resource on R6 classes can be found <a href="https://r6.r-lib.org/articles/Introduction.html" class="external-link">here</a>.</p>
 <p>In order to initialize an object with an <code>Occurrence</code>
-class, we must provide 2 arugments 1) a db connection and 2) the name of
-data table / view we’re interested in pulling data from. For
+class, we must provide 2 arguments: 1) a db connection and 2) the name
+of data table / view we’re interested in pulling data from. For
 example,</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># new Occurrence object</span></span>
