@@ -1,0 +1,42 @@
+---
+title: "Getting Started with PAMvieweR"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting Started with PAMvieweR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(PAMvieweR)
+```
+
+# DB connection
+
+First things first. You'll need to set up a connection to `nefscdb1`, this is the database where the `PAGROUP` schema lives (colloquially known as Makara).
+
+```{r db, eval = FALSE}
+# db connection
+db_conn <- ROracle::dbConnect(ROracle::Oracle(), 
+                              dbname = 'NEFSC_USERS',
+                              username = '[uid]', 
+                              password = '[pwd]')
+```
+
+Once you've established a db connection, you can get started by generating an object with an `Occurrence` R6 class. For those familiar with python, the syntax of R6 classes should feel familiar. For those more acquainted with R, R6 classes will take some getting used to. A good resource on R6 classes can be found [here](https://r6.r-lib.org/articles/Introduction.html).
+
+In order to initialize an object with an `Occurrence` class, we must provide 2 arugments 1) a db connection and 2) the name of data table / view we're interested in pulling data from. For example,
+
+```{r occ, eval = FALSE}
+# new Occurrence object
+huwh_occ <- Occurrence$new(connection = db_conn, table = 'V_PRJCT_DPLYMNT_DTCTN_O')
+```
+
+

@@ -7,3 +7,5 @@
 ^\.Rhistory$
 ^data-raw/logo$
 ^example\.R$
+^doc$
+^Meta$

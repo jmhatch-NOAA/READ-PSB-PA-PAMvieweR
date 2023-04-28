@@ -16,3 +16,7 @@ Import: R6,
   ROracle,
   dplyr
 URL: https://jmhatch-noaa.github.io/READ-PSB-PA-PAMvieweR/
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
