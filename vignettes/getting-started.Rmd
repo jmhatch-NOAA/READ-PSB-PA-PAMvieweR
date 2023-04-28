@@ -20,7 +20,7 @@ library(PAMvieweR)
 
 # New Occurrence R6 Class
 
-First things first. You'll need to set up a connection to `nefscdb1`, this is the database where the `PAGROUP` schema lives (colloquially known as Makara).
+First things first. You'll need to set up a connection to `nefscdb1`, which is the database where the `PAGROUP` schema lives (colloquially known as Makara).
 
 ```{r db, eval = FALSE}
 # db connection
