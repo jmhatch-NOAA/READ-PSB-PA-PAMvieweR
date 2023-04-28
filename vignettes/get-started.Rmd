@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 library(PAMvieweR)
 ```
 
-# DB connection
+# New Occurrence R6 Class
 
 First things first. You'll need to set up a connection to `nefscdb1`, this is the database where the `PAGROUP` schema lives (colloquially known as Makara).
 
@@ -32,7 +32,7 @@ db_conn <- ROracle::dbConnect(ROracle::Oracle(),
 
 Once you've established a db connection, you can get started by generating an object with an `Occurrence` R6 class. For those familiar with python, the syntax of R6 classes should feel familiar. For those more acquainted with R, R6 classes will take some getting used to. A good resource on R6 classes can be found [here](https://r6.r-lib.org/articles/Introduction.html).
 
-In order to initialize an object with an `Occurrence` class, we must provide 2 arugments 1) a db connection and 2) the name of data table / view we're interested in pulling data from. For example,
+In order to initialize an object with an `Occurrence` class, we must provide 2 arguments: 1) a db connection and 2) the name of data table / view we're interested in pulling data from. For example,
 
 ```{r occ, eval = FALSE}
 # new Occurrence object
