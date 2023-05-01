@@ -108,7 +108,7 @@
 <h2 id="new-occurrence-r6-class">New Occurrence R6 Class<a class="anchor" aria-label="anchor" href="#new-occurrence-r6-class"></a>
 </h2>
 <p>First things first. You’ll need to set up a connection to
-<code>nefscdb1</code>, which is the database where the
+<code>nefscdb1</code>, which is the database (db) where the
 <code>PAGROUP</code> schema lives (colloquially known as Makara).</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># db connection</span></span>
@@ -121,13 +121,33 @@ generating an object with an <code>Occurrence</code> R6 class. For those
 familiar with python, the syntax of R6 classes should feel familiar. For
 those more acquainted with R, R6 classes will take some getting used to.
 A good resource on R6 classes can be found <a href="https://r6.r-lib.org/articles/Introduction.html" class="external-link">here</a>.</p>
-<p>In order to initialize an object with an <code>Occurrence</code>
+<p>In order to initialize an object with an <code>Occurrence</code> R6
 class, we must provide 2 arguments: 1) a db connection and 2) the name
 of data table / view we’re interested in pulling data from. For
 example,</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># new Occurrence object</span></span>
 <span><span class="va">huwh_occ</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Occurrence.html">Occurrence</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>connection <span class="op">=</span> <span class="va">db_conn</span>, table <span class="op">=</span> <span class="st">'V_PRJCT_DPLYMNT_DTCTN_O'</span><span class="op">)</span></span></code></pre></div>
+<p>A method is provided to filter the db query by species using an SQL
+where clause. To do this, implement the following:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># only interested in HUWHs</span></span>
+<span><span class="va">huwh_occ</span><span class="op">$</span><span class="fu">where_species</span><span class="op">(</span><span class="fl">76</span><span class="op">)</span></span></code></pre></div>
+<p>Or you could chain the whole thing together for succinctness,</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># illustration of chaining</span></span>
+<span><span class="va">huwh_occ</span> <span class="op">&lt;-</span> <span class="va"><a href="../reference/Occurrence.html">Occurrence</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span>connection <span class="op">=</span> <span class="va">db_conn</span>, table <span class="op">=</span> <span class="st">'V_PRJCT_DPLYMNT_DTCTN_O'</span><span class="op">)</span><span class="op">$</span><span class="fu">where_species</span><span class="op">(</span><span class="fl">76</span><span class="op">)</span></span></code></pre></div>
+<p>Now we can execute the query to pull the data from the db,</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># get data</span></span>
+<span><span class="va">huwh_occ</span><span class="op">$</span><span class="fu">get_data</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">huwh_occ</span></span></code></pre></div>
+<p>Wrappers around <code>dplyr</code> functions are also provided, so
+that the resulting data can be further filtered, grouped, aggregated, or
+changed. As an example,</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># only interested in HUWHs present at the Nantucket Sound site</span></span>
+<span><span class="va">huwh_occ</span><span class="op">$</span><span class="fu">filter</span><span class="op">(</span><span class="va">SITE_NAME</span> <span class="op">==</span> <span class="st">'NANTUCKETSOUND'</span><span class="op">)</span><span class="op">$</span><span class="fu">group</span><span class="op">(</span><span class="va">ACOUSTIC_PRESENCE</span><span class="op">)</span><span class="op">$</span><span class="fu">aggregate</span><span class="op">(</span>n <span class="op">=</span> <span class="fu">n</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
   </div>
 
