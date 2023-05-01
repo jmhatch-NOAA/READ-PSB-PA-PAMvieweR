@@ -104,9 +104,9 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                               if(any(c(private$filtered, private$grouped, private$summarized, private$mutated))) {
                                 self$pam_data <- private$data
                                 private$filtered <-private$grouped <- private$summarized <- private$mutated <- FALSE
-                                message('Occurrence$pam_data has been reset.')
+                                message("Occurrence$pam_data has been reset.\n")
                               } else {
-                                message('No need to reset Occurrence$pam_data.')
+                                message("No need to reset Occurrence$pam_data.\n")
                               }
                               invisible(self)
                             },
