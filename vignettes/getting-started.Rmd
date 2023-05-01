@@ -20,7 +20,7 @@ library(PAMvieweR)
 
 # New Occurrence R6 Class
 
-First things first. You'll need to set up a connection to `nefscdb1`, which is the database where the `PAGROUP` schema lives (colloquially known as Makara).
+First things first. You'll need to set up a connection to `nefscdb1`, which is the database (db) where the `PAGROUP` schema lives (colloquially known as Makara).
 
 ```{r db, eval = FALSE}
 # db connection
@@ -32,11 +32,38 @@ db_conn <- ROracle::dbConnect(ROracle::Oracle(),
 
 Once you've established a db connection, you can get started by generating an object with an `Occurrence` R6 class. For those familiar with python, the syntax of R6 classes should feel familiar. For those more acquainted with R, R6 classes will take some getting used to. A good resource on R6 classes can be found [here](https://r6.r-lib.org/articles/Introduction.html).
 
-In order to initialize an object with an `Occurrence` class, we must provide 2 arguments: 1) a db connection and 2) the name of data table / view we're interested in pulling data from. For example,
+In order to initialize an object with an `Occurrence` R6 class, we must provide 2 arguments: 1) a db connection and 2) the name of data table / view we're interested in pulling data from. For example,
 
 ```{r occ, eval = FALSE}
 # new Occurrence object
 huwh_occ <- Occurrence$new(connection = db_conn, table = 'V_PRJCT_DPLYMNT_DTCTN_O')
 ```
 
+A method is provided to filter the db query by species using an SQL where clause. To do this, implement the following:
 
+```{r occ, eval = FALSE}
+# only interested in HUWHs
+huwh_occ$where_species(76)
+```
+
+Or you could chain the whole thing together for succinctness,
+
+```{r occ, eval = FALSE}
+# illustration of chaining
+huwh_occ <- Occurrence$new(connection = db_conn, table = 'V_PRJCT_DPLYMNT_DTCTN_O')$where_species(76)
+```
+
+Now we can execute the query to pull the data from the db,
+
+```{r occ, eval = FALSE}
+# get data
+huwh_occ$get_data()
+huwh_occ
+```
+
+Wrappers around `dplyr` functions are also provided, so that the resulting data can be further filtered, grouped, aggregated, or changed. As an example,
+
+```{r occ, eval = FALSE}
+# only interested in HUWHs present at the Nantucket Sound site
+huwh_occ$filter(SITE_NAME == 'NANTUCKETSOUND')$group(ACOUSTIC_PRESENCE)$aggregate(n = n())
+```
