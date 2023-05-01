@@ -98,18 +98,7 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                               invisible(self)
                             },
                             
-                            #' @description Prints the Occurrence R6 Object
-                            print = function() {
-                              print(self$pam_data)
-                            }
-                            
-                          ),
-                          
-                          # active binding
-                          active = list(
-                            
-                            #' @field reset
-                            #' Resets the data.
+                            #' @description Resets the data.
                             #' 
                             reset = function() {
                               if(any(c(private$filtered, private$grouped, private$summarized, private$mutated))) {
@@ -119,6 +108,12 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                               } else {
                                 message("No need to reset Occurrence$pam_data.\n")
                               }
+                              invisible(self)
+                            },
+                            
+                            #' @description Prints the Occurrence R6 Object
+                            print = function() {
+                              print(self$pam_data)
                             }
                             
                           ),
