@@ -18,6 +18,13 @@ An R6 class representing acoustic / vocal occurrence data from Passive Acoustic 
 }
 \if{html}{\out{</div>}}
 }
+\section{Active bindings}{
+\if{html}{\out{<div class="r6-active-bindings">}}
+\describe{
+\item{\code{reset}}{Resets the data.}
+}
+\if{html}{\out{</div>}}
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
@@ -27,7 +34,6 @@ An R6 class representing acoustic / vocal occurrence data from Passive Acoustic 
 \item \href{#method-Occurrence-group}{\code{Occurrence$group()}}
 \item \href{#method-Occurrence-aggregate}{\code{Occurrence$aggregate()}}
 \item \href{#method-Occurrence-mutate}{\code{Occurrence$mutate()}}
-\item \href{#method-Occurrence-reset}{\code{Occurrence$reset()}}
 \item \href{#method-Occurrence-print}{\code{Occurrence$print()}}
 \item \href{#method-Occurrence-clone}{\code{Occurrence$clone()}}
 }
@@ -139,16 +145,6 @@ Modifies the data.
 }
 \if{html}{\out{</div>}}
 }
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-Occurrence-reset"></a>}}
-\if{latex}{\out{\hypertarget{method-Occurrence-reset}{}}}
-\subsection{Method \code{reset()}}{
-Resets the data.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Occurrence$reset()}\if{html}{\out{</div>}}
-}
-
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Occurrence-print"></a>}}
