@@ -65,5 +65,5 @@ Wrappers around `dplyr` functions are also provided, so that the resulting data 
 
 ```{r dplyr_funs, eval = FALSE}
 # only interested in HUWHs present at the Nantucket Sound site
-huwh_occ$filter(SITE_NAME == 'NANTUCKETSOUND')$group(ACOUSTIC_PRESENCE)$aggregate(n = n())
+huwh_occ$filter(SITE_NAME == 'NANTUCKETSOUND')$group(ACOUSTIC_PRESENCE)$aggregate(n = dplyr::n())
 ```
