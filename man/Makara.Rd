@@ -59,7 +59,7 @@ Prints the Makara R6 object.
 \if{html}{\out{<a id="method-Makara-finalize"></a>}}
 \if{latex}{\out{\hypertarget{method-Makara-finalize}{}}}
 \subsection{Method \code{finalize()}}{
-Removes the Makara R6 object.
+What to do when you remove the Makara R6 object.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Makara$finalize()}\if{html}{\out{</div>}}
 }

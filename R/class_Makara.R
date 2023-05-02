@@ -47,7 +47,7 @@ Makara <- R6::R6Class(classname = "Makara",
                           }
                         },
                         
-                        #' @description Removes the Makara R6 object.
+                        #' @description What to do when you remove the Makara R6 object.
                         #' 
                         finalize = function() {
                           ROracle::dbDisconnect(self$connection)

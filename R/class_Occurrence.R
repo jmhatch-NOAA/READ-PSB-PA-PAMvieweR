@@ -3,7 +3,7 @@
 #' @description An R6 class representing acoustic / vocal occurrence data from Passive Acoustic Monitoring (PAM).
 #'
 #' @field species_id A vector of species IDs, see data table `PAGROUP.S_SPECIES`.
-#' @field pam_data The dataset (may be filtered, grouped, and / or summarized).
+#' @field pam_data The data.
 #'
 #' @export
 #'
@@ -69,59 +69,7 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                               invisible(self)
                             },
                             
-                            #' @description Filters the data. 
-                            #'
-                            #' @param ... See \link[dplyr]{filter}
-                            #' 
-                            #' @importFrom magrittr %<>%
-                            #' 
-                            filter = function(...) {
-                              self$pam_data %<>%
-                                dplyr::filter(...)
-                              private$filtered <- TRUE
-                              invisible(self)
-                            },
-                            
-                            #' @description Groups the data. 
-                            #' 
-                            #' @param ... See \link[dplyr]{group_by}
-                            #' 
-                            #' @importFrom magrittr %<>%
-                            #' 
-                            group = function(...) {
-                              self$pam_data %<>%
-                                dplyr::group_by(...)
-                              private$grouped <- TRUE
-                              invisible(self)
-                            },
-                            
-                            #' @description Summarizes the data.
-                            #' 
-                            #' @param ... See \link[dplyr]{summarize}
-                            #' 
-                            #' @importFrom magrittr %<>%
-                            #' 
-                            aggregate = function(...) {
-                              self$pam_data %<>%
-                                dplyr::summarize(...)
-                              private$summarized <- TRUE
-                              invisible(self)
-                            },
-                            
-                            #' @description Modifies the data.
-                            #' 
-                            #' @param ... See \link[dplyr]{mutate}
-                            #' 
-                            #' @importFrom magrittr %<>%
-                            #' 
-                            mutate = function(...) {
-                              self$pam_data %<>%
-                                dplyr::mutate(...)
-                              private$mutated <- TRUE
-                              invisible(self)
-                            },
-                            
-                            #' @description Orders the data.
+                            #' @description Order rows using column values.
                             #' 
                             #' @param ... See \link[dplyr]{arrange}
                             #' 
@@ -134,12 +82,77 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                               invisible(self)
                             },
                             
+                            #' @description Keep rows that match a condition. 
+                            #'
+                            #' @param ... See \link[dplyr]{filter}
+                            #' 
+                            #' @importFrom magrittr %<>%
+                            #' 
+                            filter = function(...) {
+                              self$pam_data %<>%
+                                dplyr::filter(...)
+                              private$filtered <- TRUE
+                              invisible(self)
+                            },
+                            
+                            #' @description Create, modify, and delete columns.
+                            #' 
+                            #' @param ... See \link[dplyr]{mutate}
+                            #' 
+                            #' @importFrom magrittr %<>%
+                            #' 
+                            mutate = function(...) {
+                              self$pam_data %<>%
+                                dplyr::mutate(...)
+                              private$mutated <- TRUE
+                              invisible(self)
+                            },
+                            
+                            #' @description Select variables in a data frame.
+                            #' 
+                            #' @param ... See \link[dplyr]{select}
+                            #' 
+                            #' @importFrom magrittr %<>%
+                            #' 
+                            select = function(...) {
+                              self$pam_data %<>%
+                                dplyr::select(...)
+                              private$selected <- TRUE
+                              invisible(self)
+                            },
+                            
+                            #' @description Group by one or more variables. 
+                            #' 
+                            #' @param ... See \link[dplyr]{group_by}
+                            #' 
+                            #' @importFrom magrittr %<>%
+                            #' 
+                            group = function(...) {
+                              self$pam_data %<>%
+                                dplyr::group_by(...)
+                              private$grouped <- TRUE
+                              invisible(self)
+                            },
+                            
+                            #' @description Summarise each group down to one row.
+                            #' 
+                            #' @param ... See \link[dplyr]{summarize}
+                            #' 
+                            #' @importFrom magrittr %<>%
+                            #' 
+                            aggregate = function(...) {
+                              self$pam_data %<>%
+                                dplyr::summarize(...)
+                              private$summarized <- TRUE
+                              invisible(self)
+                            },
+                            
                             #' @description Resets the data.
                             #' 
                             reset = function() {
-                              if(any(c(private$filtered, private$grouped, private$summarized, private$mutated, private$ordered))) {
+                              if(any(c(private$ordered, private$filtered, private$mutated, private$selected, private$grouped, private$aggregated))) {
                                 self$pam_data <- private$data
-                                private$filtered <- private$grouped <- private$summarized <- private$mutated <- private$ordered <- FALSE
+                                private$ordered <- private$filtered <- private$mutated <- private$selected <- private$grouped <- private$aggregated <- FALSE
                                 message("Occurrence$pam_data has been reset.")
                               } else {
                                 message("No need to reset Occurrence$pam_data.")
@@ -152,7 +165,7 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                               print(self$pam_data)
                             },
                             
-                            #' @description Removes the Occurrence R6 object.
+                            #' @description What to do when you remove the Occurrence R6 object.
                             #' 
                             finalize = function() {
                               if (private$access_db) {
@@ -166,11 +179,12 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                           private = list(
                             
                             # fields
+                            ordered = FALSE,
                             filtered = FALSE,
+                            mutated = FALSE,
+                            selected = FALSE,
                             grouped = FALSE,
                             summarized = FALSE,
-                            mutated = FALSE,
-                            ordered = FALSE,
                             access_db = FALSE
                             
                           )

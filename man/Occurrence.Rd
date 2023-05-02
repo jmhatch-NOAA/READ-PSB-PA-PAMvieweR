@@ -14,7 +14,7 @@ An R6 class representing acoustic / vocal occurrence data from Passive Acoustic 
 \describe{
 \item{\code{species_id}}{A vector of species IDs, see data table \code{PAGROUP.S_SPECIES}.}
 
-\item{\code{pam_data}}{The dataset (may be filtered, grouped, and / or summarized).}
+\item{\code{pam_data}}{The data.}
 }
 \if{html}{\out{</div>}}
 }
@@ -24,11 +24,12 @@ An R6 class representing acoustic / vocal occurrence data from Passive Acoustic 
 \item \href{#method-Occurrence-new}{\code{Occurrence$new()}}
 \item \href{#method-Occurrence-get_data}{\code{Occurrence$get_data()}}
 \item \href{#method-Occurrence-where_species}{\code{Occurrence$where_species()}}
+\item \href{#method-Occurrence-order}{\code{Occurrence$order()}}
 \item \href{#method-Occurrence-filter}{\code{Occurrence$filter()}}
+\item \href{#method-Occurrence-mutate}{\code{Occurrence$mutate()}}
+\item \href{#method-Occurrence-select}{\code{Occurrence$select()}}
 \item \href{#method-Occurrence-group}{\code{Occurrence$group()}}
 \item \href{#method-Occurrence-aggregate}{\code{Occurrence$aggregate()}}
-\item \href{#method-Occurrence-mutate}{\code{Occurrence$mutate()}}
-\item \href{#method-Occurrence-order}{\code{Occurrence$order()}}
 \item \href{#method-Occurrence-reset}{\code{Occurrence$reset()}}
 \item \href{#method-Occurrence-print}{\code{Occurrence$print()}}
 \item \href{#method-Occurrence-finalize}{\code{Occurrence$finalize()}}
@@ -89,10 +90,27 @@ If changed, you must re-execute \code{Occurrence$get_data()}.
 
 }
 \if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-Occurrence-order"></a>}}
+\if{latex}{\out{\hypertarget{method-Occurrence-order}{}}}
+\subsection{Method \code{order()}}{
+Order rows using column values.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Occurrence$order(...)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{...}}{See \link[dplyr]{arrange}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Occurrence-filter"></a>}}
 \if{latex}{\out{\hypertarget{method-Occurrence-filter}{}}}
 \subsection{Method \code{filter()}}{
-Filters the data.
+Keep rows that match a condition.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Occurrence$filter(...)}\if{html}{\out{</div>}}
 }
@@ -106,10 +124,44 @@ Filters the data.
 }
 }
 \if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-Occurrence-mutate"></a>}}
+\if{latex}{\out{\hypertarget{method-Occurrence-mutate}{}}}
+\subsection{Method \code{mutate()}}{
+Create, modify, and delete columns.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Occurrence$mutate(...)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{...}}{See \link[dplyr]{mutate}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-Occurrence-select"></a>}}
+\if{latex}{\out{\hypertarget{method-Occurrence-select}{}}}
+\subsection{Method \code{select()}}{
+Select variables in a data frame.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Occurrence$select(...)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{...}}{See \link[dplyr]{select}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Occurrence-group"></a>}}
 \if{latex}{\out{\hypertarget{method-Occurrence-group}{}}}
 \subsection{Method \code{group()}}{
-Groups the data.
+Group by one or more variables.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Occurrence$group(...)}\if{html}{\out{</div>}}
 }
@@ -126,7 +178,7 @@ Groups the data.
 \if{html}{\out{<a id="method-Occurrence-aggregate"></a>}}
 \if{latex}{\out{\hypertarget{method-Occurrence-aggregate}{}}}
 \subsection{Method \code{aggregate()}}{
-Summarizes the data.
+Summarise each group down to one row.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Occurrence$aggregate(...)}\if{html}{\out{</div>}}
 }
@@ -135,40 +187,6 @@ Summarizes the data.
 \if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{...}}{See \link[dplyr]{summarize}}
-}
-\if{html}{\out{</div>}}
-}
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-Occurrence-mutate"></a>}}
-\if{latex}{\out{\hypertarget{method-Occurrence-mutate}{}}}
-\subsection{Method \code{mutate()}}{
-Modifies the data.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Occurrence$mutate(...)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{...}}{See \link[dplyr]{mutate}}
-}
-\if{html}{\out{</div>}}
-}
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-Occurrence-order"></a>}}
-\if{latex}{\out{\hypertarget{method-Occurrence-order}{}}}
-\subsection{Method \code{order()}}{
-Orders the data.
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Occurrence$order(...)}\if{html}{\out{</div>}}
-}
-
-\subsection{Arguments}{
-\if{html}{\out{<div class="arguments">}}
-\describe{
-\item{\code{...}}{See \link[dplyr]{arrange}}
 }
 \if{html}{\out{</div>}}
 }
@@ -197,7 +215,7 @@ Prints the Occurrence R6 Object
 \if{html}{\out{<a id="method-Occurrence-finalize"></a>}}
 \if{latex}{\out{\hypertarget{method-Occurrence-finalize}{}}}
 \subsection{Method \code{finalize()}}{
-Removes the Occurrence R6 object.
+What to do when you remove the Occurrence R6 object.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Occurrence$finalize()}\if{html}{\out{</div>}}
 }
