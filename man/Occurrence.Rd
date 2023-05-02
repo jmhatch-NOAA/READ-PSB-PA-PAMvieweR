@@ -28,6 +28,7 @@ An R6 class representing acoustic / vocal occurrence data from Passive Acoustic 
 \item \href{#method-Occurrence-group}{\code{Occurrence$group()}}
 \item \href{#method-Occurrence-aggregate}{\code{Occurrence$aggregate()}}
 \item \href{#method-Occurrence-mutate}{\code{Occurrence$mutate()}}
+\item \href{#method-Occurrence-order}{\code{Occurrence$order()}}
 \item \href{#method-Occurrence-reset}{\code{Occurrence$reset()}}
 \item \href{#method-Occurrence-print}{\code{Occurrence$print()}}
 \item \href{#method-Occurrence-finalize}{\code{Occurrence$finalize()}}
@@ -151,6 +152,23 @@ Modifies the data.
 \if{html}{\out{<div class="arguments">}}
 \describe{
 \item{\code{...}}{See \link[dplyr]{mutate}}
+}
+\if{html}{\out{</div>}}
+}
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-Occurrence-order"></a>}}
+\if{latex}{\out{\hypertarget{method-Occurrence-order}{}}}
+\subsection{Method \code{order()}}{
+Orders the data.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Occurrence$order(...)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{...}}{See \link[dplyr]{arrange}}
 }
 \if{html}{\out{</div>}}
 }
