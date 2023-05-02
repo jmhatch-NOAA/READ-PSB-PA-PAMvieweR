@@ -42,7 +42,7 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                                 super$get_data()
                                 self$pam_data <- private$data
                               } else {
-                                message("Data are already accessible.")
+                                message("Data are already accessible.\n")
                               }
                             },
                             
@@ -64,7 +64,7 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                                   self$sql <- sprintf(self$sql, toString(sprintf("'%s'", self$species_id)))
                                 }
                               } else {
-                                message("You cannot set a species_id when data are loaded manually.")
+                                message("You cannot set a species_id when data are loaded manually.\n")
                               }
                               invisible(self)
                             },
@@ -144,9 +144,7 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                             finalize = function() {
                               if (private$access_db) {
                                 super$finalize()
-                              } else {
-                                NULL 
-                              }
+                              } 
                             }
                             
                           ),
