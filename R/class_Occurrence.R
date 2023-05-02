@@ -54,14 +54,18 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                             #' @param species_id Vector of species IDs (see data table `PAGROUP.S_SPECIES`)
                             #' 
                             where_species = function(species_id) {
-                              self$species_id <- species_id
-                              if (is.null(self$species_id)) {
-                                self$sql <- paste0('SELECT * FROM ', self$table)
+                              if (private$access_db) {
+                                self$species_id <- species_id
+                                if (is.null(self$species_id)) {
+                                  self$sql <- paste0('SELECT * FROM ', self$table)
+                                } else {
+                                  self$sql <- paste0('SELECT * FROM ', self$table, ' where SPECIES_ID in (%s)')
+                                  self$sql <- sprintf(self$sql, toString(sprintf("'%s'", self$species_id)))
+                                }
+                                invisible(self)
                               } else {
-                                self$sql <- paste0('SELECT * FROM ', self$table, ' where SPECIES_ID in (%s)')
-                                self$sql <- sprintf(self$sql, toString(sprintf("'%s'", self$species_id)))
+                                message("You cannot set a species_id.")
                               }
-                              invisible(self)
                             },
                             
                             #' @description Filters the data. 
@@ -132,7 +136,7 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                             #' @description Prints the Occurrence R6 Object
                             print = function() {
                               print(self$pam_data)
-                            }
+                            },
                             
                             #' @description Removes the Occurrence R6 object.
                             #' 
