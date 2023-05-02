@@ -50,9 +50,10 @@ Makara <- R6::R6Class(classname = "Makara",
                         #' @description Removes the Makara R6 object.
                         #' 
                         finalize = function() {
-                          message("Disconnecting from the Makara database.\n")
                           ROracle::dbDisconnect(self$connection)
+                          message("Disconnecting from the Makara database.\n")
                         }
+                        
                       ),
                       
                       # private (not accessible outside of class)

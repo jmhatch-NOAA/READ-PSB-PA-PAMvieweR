@@ -20,11 +20,29 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                             pam_data = NULL,
 
                             # methods
+                            #' @description Initializes the Makara R6 object.
+                            #'
+                            #' @param connection DB connection
+                            #' @param table Table or view name
+                            #'
+                            initialize = function(connection, table, data = NULL) { 
+                              if (is.null(data)) {
+                                super$initialize(connection, table)
+                                private$access_db <- TRUE
+                              } else {
+                                self$pam_data <- private$data <- data
+                              }
+                            },
+                            
                             #' @description Queries the DB using an SQL statement and fetches the data into R.
                             #'
                             get_data = function() {
-                              super$get_data()
-                              self$pam_data <- private$data
+                              if (private$access_db) {
+                                super$get_data()
+                                self$pam_data <- private$data
+                              } else {
+                                message("Data are already accessible.")
+                              }
                             },
                             
                             #' @description Modifies the where clause of the SQL statement used by `get_data()` to include species IDs. 
@@ -116,6 +134,16 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                               print(self$pam_data)
                             }
                             
+                            #' @description Removes the Occurrence R6 object.
+                            #' 
+                            finalize = function() {
+                              if (priveate$access_db) {
+                                super$finalize()
+                              } else {
+                                NULL 
+                              }
+                            }
+                            
                           ),
                           
                           # private (not accessible outside of class)
@@ -125,7 +153,8 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                             filtered = FALSE,
                             grouped = FALSE,
                             summarized = FALSE,
-                            mutated = FALSE
+                            mutated = FALSE,
+                            access_db = FALSE
                             
                           )
                           
