@@ -87,34 +87,51 @@
 
 </dl><p></p></div>
     </div>
-    <div id="active-bindings">
-    <h2>Active bindings</h2>
-    <p></p><div class="r6-active-bindings"><dl><dt><code>reset</code></dt>
-<dd><p>Resets the data.</p></dd>
-
-
-</dl><p></p></div>
-    </div>
     <div id="methods">
     <h2>Methods</h2>
     
 <div class="section">
 <h3 id="public-methods">Public methods<a class="anchor" aria-label="anchor" href="#public-methods"></a></h3>
 
-<ul><li><p><a href="#method-Occurrence-get_data"><code>Occurrence$get_data()</code></a></p></li>
+<ul><li><p><a href="#method-Occurrence-new"><code>Occurrence$new()</code></a></p></li>
+<li><p><a href="#method-Occurrence-get_data"><code>Occurrence$get_data()</code></a></p></li>
 <li><p><a href="#method-Occurrence-where_species"><code>Occurrence$where_species()</code></a></p></li>
 <li><p><a href="#method-Occurrence-filter"><code>Occurrence$filter()</code></a></p></li>
 <li><p><a href="#method-Occurrence-group"><code>Occurrence$group()</code></a></p></li>
 <li><p><a href="#method-Occurrence-aggregate"><code>Occurrence$aggregate()</code></a></p></li>
 <li><p><a href="#method-Occurrence-mutate"><code>Occurrence$mutate()</code></a></p></li>
+<li><p><a href="#method-Occurrence-reset"><code>Occurrence$reset()</code></a></p></li>
 <li><p><a href="#method-Occurrence-print"><code>Occurrence$print()</code></a></p></li>
+<li><p><a href="#method-Occurrence-finalize"><code>Occurrence$finalize()</code></a></p></li>
 <li><p><a href="#method-Occurrence-clone"><code>Occurrence$clone()</code></a></p></li>
-</ul></div><p><details open><summary>Inherited methods</summary><ul><li><span class="pkg-link" data-pkg="PAMvieweR" data-topic="Makara" data-id="finalize"><a href="../../PAMvieweR/html/Makara.html#method-Makara-finalize"><code>PAMvieweR::Makara$finalize()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="PAMvieweR" data-topic="Makara" data-id="initialize"><a href="../../PAMvieweR/html/Makara.html#method-Makara-initialize"><code>PAMvieweR::Makara$initialize()</code></a></span></li>
-</ul></details></p><hr><a id="method-Occurrence-get_data"></a><div class="section">
+</ul></div><p></p><hr><a id="method-Occurrence-new"></a><div class="section">
+<h3 id="method-new-">Method <code>new()</code><a class="anchor" aria-label="anchor" href="#method-new-"></a></h3>
+<p>Initializes the Makara R6 object.</p><div class="section">
+<h4 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a></h4>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va"><a href="../reference/Occurrence.html">Occurrence</a></span><span class="op">$</span><span class="fu">new</span><span class="op">(</span><span class="va">connection</span>, <span class="va">table</span>, data <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div><p></p></div>
+</div>
+
+<div class="section">
+<h4 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h4>
+<p></p><div class="arguments"><dl><dt><code>connection</code></dt>
+<dd><p>DB connection</p></dd>
+
+
+<dt><code>table</code></dt>
+<dd><p>Table or view name</p></dd>
+
+
+<dt><code>data</code></dt>
+<dd><p><code>tibble</code> or <code>data.frame</code> object</p></dd>
+
+
+</dl><p></p></div>
+</div>
+
+</div><p></p><hr><a id="method-Occurrence-get_data"></a><div class="section">
 <h3 id="method-get-data-">Method <code>get_data()</code><a class="anchor" aria-label="anchor" href="#method-get-data-"></a></h3>
 <p>Queries the DB using an SQL statement and fetches the data into R.</p><div class="section">
-<h4 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a></h4>
+<h4 id="usage-1">Usage<a class="anchor" aria-label="anchor" href="#usage-1"></a></h4>
 <p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">Occurrence</span><span class="op">$</span><span class="fu">get_data</span><span class="op">(</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
@@ -122,12 +139,12 @@
 </div><p></p><hr><a id="method-Occurrence-where_species"></a><div class="section">
 <h3 id="method-where-species-">Method <code>where_species()</code><a class="anchor" aria-label="anchor" href="#method-where-species-"></a></h3>
 <p>Modifies the where clause of the SQL statement used by <code>get_data()</code> to include species IDs.</p><div class="section">
-<h4 id="usage-1">Usage<a class="anchor" aria-label="anchor" href="#usage-1"></a></h4>
+<h4 id="usage-2">Usage<a class="anchor" aria-label="anchor" href="#usage-2"></a></h4>
 <p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">Occurrence</span><span class="op">$</span><span class="fu">where_species</span><span class="op">(</span><span class="va">species_id</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
-<h4 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h4>
+<h4 id="arguments-1">Arguments<a class="anchor" aria-label="anchor" href="#arguments-1"></a></h4>
 <p></p><div class="arguments"><dl><dt><code>species_id</code></dt>
 <dd><p>Vector of species IDs (see data table <code>PAGROUP.S_SPECIES</code>)</p></dd>
 
@@ -144,12 +161,12 @@ If changed, you must re-execute <code>Occurrence$get_data()</code>.</p>
 </div><p></p><hr><a id="method-Occurrence-filter"></a><div class="section">
 <h3 id="method-filter-">Method <code><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter()</a></code><a class="anchor" aria-label="anchor" href="#method-filter-"></a></h3>
 <p>Filters the data.</p><div class="section">
-<h4 id="usage-2">Usage<a class="anchor" aria-label="anchor" href="#usage-2"></a></h4>
+<h4 id="usage-3">Usage<a class="anchor" aria-label="anchor" href="#usage-3"></a></h4>
 <p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">Occurrence</span><span class="op">$</span><span class="fu">filter</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
-<h4 id="arguments-1">Arguments<a class="anchor" aria-label="anchor" href="#arguments-1"></a></h4>
+<h4 id="arguments-2">Arguments<a class="anchor" aria-label="anchor" href="#arguments-2"></a></h4>
 <p></p><div class="arguments"><dl><dt><code>...</code></dt>
 <dd><p>See <a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></p></dd>
 
@@ -160,12 +177,12 @@ If changed, you must re-execute <code>Occurrence$get_data()</code>.</p>
 </div><p></p><hr><a id="method-Occurrence-group"></a><div class="section">
 <h3 id="method-group-">Method <code>group()</code><a class="anchor" aria-label="anchor" href="#method-group-"></a></h3>
 <p>Groups the data.</p><div class="section">
-<h4 id="usage-3">Usage<a class="anchor" aria-label="anchor" href="#usage-3"></a></h4>
+<h4 id="usage-4">Usage<a class="anchor" aria-label="anchor" href="#usage-4"></a></h4>
 <p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">Occurrence</span><span class="op">$</span><span class="fu">group</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
-<h4 id="arguments-2">Arguments<a class="anchor" aria-label="anchor" href="#arguments-2"></a></h4>
+<h4 id="arguments-3">Arguments<a class="anchor" aria-label="anchor" href="#arguments-3"></a></h4>
 <p></p><div class="arguments"><dl><dt><code>...</code></dt>
 <dd><p>See <a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></p></dd>
 
@@ -176,12 +193,12 @@ If changed, you must re-execute <code>Occurrence$get_data()</code>.</p>
 </div><p></p><hr><a id="method-Occurrence-aggregate"></a><div class="section">
 <h3 id="method-aggregate-">Method <code><a href="https://rdrr.io/r/stats/aggregate.html" class="external-link">aggregate()</a></code><a class="anchor" aria-label="anchor" href="#method-aggregate-"></a></h3>
 <p>Summarizes the data.</p><div class="section">
-<h4 id="usage-4">Usage<a class="anchor" aria-label="anchor" href="#usage-4"></a></h4>
+<h4 id="usage-5">Usage<a class="anchor" aria-label="anchor" href="#usage-5"></a></h4>
 <p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">Occurrence</span><span class="op">$</span><span class="fu">aggregate</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
-<h4 id="arguments-3">Arguments<a class="anchor" aria-label="anchor" href="#arguments-3"></a></h4>
+<h4 id="arguments-4">Arguments<a class="anchor" aria-label="anchor" href="#arguments-4"></a></h4>
 <p></p><div class="arguments"><dl><dt><code>...</code></dt>
 <dd><p>See <a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></p></dd>
 
@@ -192,12 +209,12 @@ If changed, you must re-execute <code>Occurrence$get_data()</code>.</p>
 </div><p></p><hr><a id="method-Occurrence-mutate"></a><div class="section">
 <h3 id="method-mutate-">Method <code>mutate()</code><a class="anchor" aria-label="anchor" href="#method-mutate-"></a></h3>
 <p>Modifies the data.</p><div class="section">
-<h4 id="usage-5">Usage<a class="anchor" aria-label="anchor" href="#usage-5"></a></h4>
+<h4 id="usage-6">Usage<a class="anchor" aria-label="anchor" href="#usage-6"></a></h4>
 <p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">Occurrence</span><span class="op">$</span><span class="fu">mutate</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
-<h4 id="arguments-4">Arguments<a class="anchor" aria-label="anchor" href="#arguments-4"></a></h4>
+<h4 id="arguments-5">Arguments<a class="anchor" aria-label="anchor" href="#arguments-5"></a></h4>
 <p></p><div class="arguments"><dl><dt><code>...</code></dt>
 <dd><p>See <a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></p></dd>
 
@@ -205,23 +222,39 @@ If changed, you must re-execute <code>Occurrence$get_data()</code>.</p>
 </dl><p></p></div>
 </div>
 
+</div><p></p><hr><a id="method-Occurrence-reset"></a><div class="section">
+<h3 id="method-reset-">Method <code>reset()</code><a class="anchor" aria-label="anchor" href="#method-reset-"></a></h3>
+<p>Resets the data.</p><div class="section">
+<h4 id="usage-7">Usage<a class="anchor" aria-label="anchor" href="#usage-7"></a></h4>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">Occurrence</span><span class="op">$</span><span class="fu">reset</span><span class="op">(</span><span class="op">)</span></span></code></pre></div><p></p></div>
+</div>
+
+
 </div><p></p><hr><a id="method-Occurrence-print"></a><div class="section">
 <h3 id="method-print-">Method <code><a href="https://rdrr.io/r/base/print.html" class="external-link">print()</a></code><a class="anchor" aria-label="anchor" href="#method-print-"></a></h3>
 <p>Prints the Occurrence R6 Object</p><div class="section">
-<h4 id="usage-6">Usage<a class="anchor" aria-label="anchor" href="#usage-6"></a></h4>
+<h4 id="usage-8">Usage<a class="anchor" aria-label="anchor" href="#usage-8"></a></h4>
 <p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">Occurrence</span><span class="op">$</span><span class="fu">print</span><span class="op">(</span><span class="op">)</span></span></code></pre></div><p></p></div>
+</div>
+
+
+</div><p></p><hr><a id="method-Occurrence-finalize"></a><div class="section">
+<h3 id="method-finalize-">Method <code>finalize()</code><a class="anchor" aria-label="anchor" href="#method-finalize-"></a></h3>
+<p>Removes the Occurrence R6 object.</p><div class="section">
+<h4 id="usage-9">Usage<a class="anchor" aria-label="anchor" href="#usage-9"></a></h4>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">Occurrence</span><span class="op">$</span><span class="fu">finalize</span><span class="op">(</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 
 </div><p></p><hr><a id="method-Occurrence-clone"></a><div class="section">
 <h3 id="method-clone-">Method <code>clone()</code><a class="anchor" aria-label="anchor" href="#method-clone-"></a></h3>
 <p>The objects of this class are cloneable with this method.</p><div class="section">
-<h4 id="usage-7">Usage<a class="anchor" aria-label="anchor" href="#usage-7"></a></h4>
+<h4 id="usage-10">Usage<a class="anchor" aria-label="anchor" href="#usage-10"></a></h4>
 <p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">Occurrence</span><span class="op">$</span><span class="fu">clone</span><span class="op">(</span>deep <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 <div class="section">
-<h4 id="arguments-5">Arguments<a class="anchor" aria-label="anchor" href="#arguments-5"></a></h4>
+<h4 id="arguments-6">Arguments<a class="anchor" aria-label="anchor" href="#arguments-6"></a></h4>
 <p></p><div class="arguments"><dl><dt><code>deep</code></dt>
 <dd><p>Whether to make a deep clone.</p></dd>
 
