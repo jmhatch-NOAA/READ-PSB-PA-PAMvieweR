@@ -142,7 +142,7 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                             #' @description Removes the Occurrence R6 object.
                             #' 
                             finalize = function() {
-                              if (priveate$access_db) {
+                              if (private$access_db) {
                                 super$finalize()
                               } else {
                                 NULL 
