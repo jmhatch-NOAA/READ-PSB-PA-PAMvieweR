@@ -63,10 +63,10 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                                   self$sql <- paste0('SELECT * FROM ', self$table, ' where SPECIES_ID in (%s)')
                                   self$sql <- sprintf(self$sql, toString(sprintf("'%s'", self$species_id)))
                                 }
-                                invisible(self)
                               } else {
                                 message("You cannot set a species_id when data are loaded manually.")
                               }
+                              invisible(self)
                             },
                             
                             #' @description Filters the data. 
