@@ -42,7 +42,7 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                                 super$get_data()
                                 self$pam_data <- private$data
                               } else {
-                                message("Data are already accessible.\n")
+                                message("Data are already accessible.")
                               }
                             },
                             
@@ -64,7 +64,7 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                                   self$sql <- sprintf(self$sql, toString(sprintf("'%s'", self$species_id)))
                                 }
                               } else {
-                                message("You cannot set a species_id when data are loaded manually.\n")
+                                message("You cannot set a species_id when data are loaded manually.")
                               }
                               invisible(self)
                             },
@@ -121,15 +121,28 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                               invisible(self)
                             },
                             
+                            #' @description Orders the data.
+                            #' 
+                            #' @param ... See \link[dplyr]{arrange}
+                            #' 
+                            #' @importFrom magrittr %<>%
+                            #' 
+                            order = function(...) {
+                              self$pam_data %<>%
+                                dplyr::arrange(...)
+                              private$ordered <- TRUE
+                              invisible(self)
+                            },
+                            
                             #' @description Resets the data.
                             #' 
                             reset = function() {
-                              if(any(c(private$filtered, private$grouped, private$summarized, private$mutated))) {
+                              if(any(c(private$filtered, private$grouped, private$summarized, private$mutated, private$ordered))) {
                                 self$pam_data <- private$data
-                                private$filtered <- private$grouped <- private$summarized <- private$mutated <- FALSE
-                                message("Occurrence$pam_data has been reset.\n")
+                                private$filtered <- private$grouped <- private$summarized <- private$mutated <- private$ordered <- FALSE
+                                message("Occurrence$pam_data has been reset.")
                               } else {
-                                message("No need to reset Occurrence$pam_data.\n")
+                                message("No need to reset Occurrence$pam_data.")
                               }
                               invisible(self)
                             },
@@ -157,6 +170,7 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                             grouped = FALSE,
                             summarized = FALSE,
                             mutated = FALSE,
+                            ordered = FALSE,
                             access_db = FALSE
                             
                           )

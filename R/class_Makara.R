@@ -41,9 +41,9 @@ Makara <- R6::R6Class(classname = "Makara",
                         #' 
                         print = function() {
                           if (private$dbIsValid()) {
-                            message(paste0("You're currently connected to ", ROracle::dbGetInfo(self$connection)$dbname, " and pulling from ", self$table, ".\n"))
+                            message(paste0("You're currently connected to ", ROracle::dbGetInfo(self$connection)$dbname, " and pulling from ", self$table, "."))
                           } else {
-                            message("You're disconnected from the Makara database.\n")
+                            message("You're disconnected from the Makara database.")
                           }
                         },
                         
@@ -51,7 +51,7 @@ Makara <- R6::R6Class(classname = "Makara",
                         #' 
                         finalize = function() {
                           ROracle::dbDisconnect(self$connection)
-                          message("Disconnecting from the Makara database.\n")
+                          message("Disconnecting from the Makara database.")
                         }
                         
                       ),
