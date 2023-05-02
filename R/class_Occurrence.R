@@ -24,6 +24,7 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                             #'
                             #' @param connection DB connection
                             #' @param table Table or view name
+                            #' @param data `tibble` or `data.frame` object
                             #'
                             initialize = function(connection, table, data = NULL) { 
                               if (is.null(data)) {
@@ -64,7 +65,7 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                                 }
                                 invisible(self)
                               } else {
-                                message("You cannot set a species_id.")
+                                message("You cannot set a species_id when data are loaded manually.")
                               }
                             },
                             

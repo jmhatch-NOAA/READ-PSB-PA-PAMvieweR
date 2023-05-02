@@ -18,34 +18,43 @@ An R6 class representing acoustic / vocal occurrence data from Passive Acoustic 
 }
 \if{html}{\out{</div>}}
 }
-\section{Active bindings}{
-\if{html}{\out{<div class="r6-active-bindings">}}
-\describe{
-\item{\code{reset}}{Resets the data.}
-}
-\if{html}{\out{</div>}}
-}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
+\item \href{#method-Occurrence-new}{\code{Occurrence$new()}}
 \item \href{#method-Occurrence-get_data}{\code{Occurrence$get_data()}}
 \item \href{#method-Occurrence-where_species}{\code{Occurrence$where_species()}}
 \item \href{#method-Occurrence-filter}{\code{Occurrence$filter()}}
 \item \href{#method-Occurrence-group}{\code{Occurrence$group()}}
 \item \href{#method-Occurrence-aggregate}{\code{Occurrence$aggregate()}}
 \item \href{#method-Occurrence-mutate}{\code{Occurrence$mutate()}}
+\item \href{#method-Occurrence-reset}{\code{Occurrence$reset()}}
 \item \href{#method-Occurrence-print}{\code{Occurrence$print()}}
+\item \href{#method-Occurrence-finalize}{\code{Occurrence$finalize()}}
 \item \href{#method-Occurrence-clone}{\code{Occurrence$clone()}}
 }
 }
-\if{html}{\out{
-<details open><summary>Inherited methods</summary>
-<ul>
-<li><span class="pkg-link" data-pkg="PAMvieweR" data-topic="Makara" data-id="finalize"><a href='../../PAMvieweR/html/Makara.html#method-Makara-finalize'><code>PAMvieweR::Makara$finalize()</code></a></span></li>
-<li><span class="pkg-link" data-pkg="PAMvieweR" data-topic="Makara" data-id="initialize"><a href='../../PAMvieweR/html/Makara.html#method-Makara-initialize'><code>PAMvieweR::Makara$initialize()</code></a></span></li>
-</ul>
-</details>
-}}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-Occurrence-new"></a>}}
+\if{latex}{\out{\hypertarget{method-Occurrence-new}{}}}
+\subsection{Method \code{new()}}{
+Initializes the Makara R6 object.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Occurrence$new(connection, table, data = NULL)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{connection}}{DB connection}
+
+\item{\code{table}}{Table or view name}
+
+\item{\code{data}}{\code{tibble} or \code{data.frame} object}
+}
+\if{html}{\out{</div>}}
+}
+}
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Occurrence-get_data"></a>}}
 \if{latex}{\out{\hypertarget{method-Occurrence-get_data}{}}}
@@ -147,12 +156,32 @@ Modifies the data.
 }
 }
 \if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-Occurrence-reset"></a>}}
+\if{latex}{\out{\hypertarget{method-Occurrence-reset}{}}}
+\subsection{Method \code{reset()}}{
+Resets the data.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Occurrence$reset()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Occurrence-print"></a>}}
 \if{latex}{\out{\hypertarget{method-Occurrence-print}{}}}
 \subsection{Method \code{print()}}{
 Prints the Occurrence R6 Object
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Occurrence$print()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-Occurrence-finalize"></a>}}
+\if{latex}{\out{\hypertarget{method-Occurrence-finalize}{}}}
+\subsection{Method \code{finalize()}}{
+Removes the Occurrence R6 object.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Occurrence$finalize()}\if{html}{\out{</div>}}
 }
 
 }
