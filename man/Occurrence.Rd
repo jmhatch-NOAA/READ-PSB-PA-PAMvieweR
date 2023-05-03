@@ -23,6 +23,7 @@ An R6 class representing acoustic / vocal occurrence data from Passive Acoustic 
 \itemize{
 \item \href{#method-Occurrence-new}{\code{Occurrence$new()}}
 \item \href{#method-Occurrence-get_data}{\code{Occurrence$get_data()}}
+\item \href{#method-Occurrence-set_data}{\code{Occurrence$set_data()}}
 \item \href{#method-Occurrence-where_species}{\code{Occurrence$where_species()}}
 \item \href{#method-Occurrence-order}{\code{Occurrence$order()}}
 \item \href{#method-Occurrence-filter}{\code{Occurrence$filter()}}
@@ -66,6 +67,23 @@ Queries the DB using an SQL statement and fetches the data into R.
 \if{html}{\out{<div class="r">}}\preformatted{Occurrence$get_data()}\if{html}{\out{</div>}}
 }
 
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-Occurrence-set_data"></a>}}
+\if{latex}{\out{\hypertarget{method-Occurrence-set_data}{}}}
+\subsection{Method \code{set_data()}}{
+Manually set data in an Occurrence R6 class.
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Occurrence$set_data(new_data)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{new_data}}{\code{tibble} or \code{data.frame}}
+}
+\if{html}{\out{</div>}}
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-Occurrence-where_species"></a>}}

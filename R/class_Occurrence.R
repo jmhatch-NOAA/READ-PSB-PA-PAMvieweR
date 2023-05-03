@@ -46,6 +46,14 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                               }
                             },
                             
+                            #' @description Manually set data in an Occurrence R6 class.
+                            #' 
+                            #' @param new_data `tibble` or `data.frame` 
+                            #' 
+                            set_data = function(new_data) {
+                              self$pam_data <- private$data <- new_data
+                            },
+                            
                             #' @description Modifies the where clause of the SQL statement used by `get_data()` to include species IDs. 
                             #' 
                             #' @details 
