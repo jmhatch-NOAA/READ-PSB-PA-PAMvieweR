@@ -1,5 +1,5 @@
 name: New Feature Request
-description: Request new feature be added to PAMvieweR.
+description: Request new feature(s) be added to PAMvieweR.
 title: "[Request]: "
 labels: ["enhancement"]
 assignees: ["jmhatch"]
@@ -19,7 +19,7 @@ body:
   - type: checkboxes
     id: search
     attributes:
-      label: Make sure a solution doesn't already exist for your problem.
+      label: Make sure a solution doesn't already exist for your problem
       description: Please search the existing [issues](https://github.com/jmhatch-NOAA/READ-PSB-PA-PAMvieweR/issues) and [documentation](https://jmhatch-noaa.github.io/READ-PSB-PA-PAMvieweR/reference/index.html) to see if a solution exists.
       options:
         - label: I have searched the existing issues and documentation.
