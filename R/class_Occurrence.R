@@ -52,6 +52,8 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                             #' 
                             set_data = function(new_data) {
                               self$pam_data <- private$data <- new_data
+                              private$ordered <- private$filtered <- private$mutated <- private$selected <- private$grouped <- private$aggregated <- FALSE
+                              private$access_db <- FALSE
                             },
                             
                             #' @description Modifies the where clause of the SQL statement used by `get_data()` to include species IDs. 
