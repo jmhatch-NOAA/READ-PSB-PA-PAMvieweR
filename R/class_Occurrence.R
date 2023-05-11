@@ -52,6 +52,7 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                             #' 
                             set_data = function(new_data) {
                               self$pam_data <- private$data <- new_data
+                              if (private$access_db) super$finalize()
                               private$access_db <- FALSE
                               private$ordered <- private$filtered <- private$mutated <- private$selected <- private$grouped <- private$summarized <- FALSE
                             },
