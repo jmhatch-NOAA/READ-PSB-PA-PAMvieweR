@@ -33,7 +33,6 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                               } else {
                                 self$pam_data <- private$data <- data
                               }
-                              private$ordered <- private$filtered <- private$mutated <- private$selected <- private$grouped <- private$aggregated <- FALSE
                             },
                             
                             #' @description Queries the DB using an SQL statement and fetches the data into R.
@@ -54,7 +53,7 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                             set_data = function(new_data) {
                               self$pam_data <- private$data <- new_data
                               private$access_db <- FALSE
-                              private$ordered <- private$filtered <- private$mutated <- private$selected <- private$grouped <- private$aggregated <- FALSE
+                              private$ordered <- private$filtered <- private$mutated <- private$selected <- private$grouped <- private$summarized <- FALSE
                             },
                             
                             #' @description Modifies the where clause of the SQL statement used by `get_data()` to include species IDs. 
@@ -163,7 +162,7 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                             reset = function() {
                               if(any(c(private$ordered, private$filtered, private$mutated, private$selected, private$grouped, private$aggregated))) {
                                 self$pam_data <- private$data
-                                private$ordered <- private$filtered <- private$mutated <- private$selected <- private$grouped <- private$aggregated <- FALSE
+                                private$ordered <- private$filtered <- private$mutated <- private$selected <- private$grouped <- private$summarized <- FALSE
                                 message("Occurrence$pam_data has been reset.")
                               } else {
                                 message("No need to reset Occurrence$pam_data.")
@@ -190,14 +189,14 @@ Occurrence <- R6::R6Class(classname = "Occurrence",
                           private = list(
                             
                             # fields
-                            ordered = NULL,
-                            filtered = NULL,
-                            mutated = NULL,
-                            selected = NULL,
-                            grouped = NULL,
-                            summarized = NULL,
-                            access_db = NULL
+                            ordered = FALSE,
+                            filtered = FALSE,
+                            mutated = FALSE,
+                            selected = FALSE,
+                            grouped = FALSE,
+                            summarized = FALSE,
+                            access_db = FALSE
                             
                           )
                           
-)
+) 
