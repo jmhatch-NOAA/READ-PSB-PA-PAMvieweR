@@ -6,7 +6,7 @@ Authors@R: c(
     person("Genevieve", "Davis", email = "genevieve.davis@noaa.gov", role = "ctb"),
     person("Annamaria", "DeAngelis", email = "annamaria.deangelis@noaa.gov", role = "ctb"),
     person("Jessica", "McCordic", email = "jessica.mccordic@noaa.gov", role = "ctb"),
-    person("Annabel", "Westell", email = "annabel.westell@noaa.gov", role = "aut"))
+    person("Annabel", "Westell", email = "annabel.westell@noaa.gov", role = "ctb"))
 Description: Facilitating exploratory data analysis (EDA) for passive acoustic data stored in the iternal NEFSC database (db), Makara.
 License: file LICENSE
 Encoding: UTF-8
