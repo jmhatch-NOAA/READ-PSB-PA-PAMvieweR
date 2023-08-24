@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 # {PAMvieweR} <a href='https://jmhatch-noaa.github.io/READ-PSB-PA-PAMvieweR/'><img src='man/figures/logo.png' style="float:right; height:200px;"/></a>
-=======
-# {PAMvieweR} <a href='https://jmhatch-noaa.github.io/READ-PSB-PA-PAMvieweR/'><img src='man/figures/logo.png' align="right" style="float:right; height:200px;"/></a>
->>>>>>> 89d4762 (Update logo)
 
 [![gitleaks](https://github.com/jmhatch-NOAA/READ-PSB-PA-PAMvieweR/actions/workflows/secretScan.yml/badge.svg)](https://github.com/jmhatch-NOAA/READ-PSB-PA-PAMvieweR/actions/workflows/secretScan.yml)
 
